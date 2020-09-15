@@ -1,7 +1,7 @@
 
-// This approach is similar to the one described in lecture. The DOM is modified to add the game function when the button is clicked.
+// This approach is similar to the one described in lecture. The function is called when the move button is clicked. 
 
-document.getElementById('test').onclick = function(){
+function runGame(){
 
 // generates Random Number (Approach Found on w3 schools https://www.w3schools.com/js/js_random.asp)
 	let num = Math.floor(Math.random() *3);
