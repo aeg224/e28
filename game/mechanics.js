@@ -34,7 +34,7 @@ let outcome="Invalid Selection: Please Select Either Rock, Paper or Scissors!";
 	}	
 	
 	if ( computer_move.valueOf() == "Scissors" && user_move.valueOf()=="Rock" || computer_move.valueOf() == "Rock" && user_move.valueOf()=="Scissors"){
-	        outcome="Rock Beats Scissors!";
+	        outcome="Rock Beats Scissors!!";
 		if (user_move.valueOf()=="Rock"){
 			outcome+="<br>You Win";
 		}
