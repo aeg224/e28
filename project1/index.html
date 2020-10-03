@@ -1,0 +1,27 @@
+<html>
+<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
+<script src='myScript.js' defer></script>
+<body>
+<h2>Rock Paper Scissors</h2>
+
+<div id='gameP1' @keyup.enter='runGame'>
+<label>Please Make Your Selection
+<input type='radio' id='rock' value='rock' v-model='selection'>
+Rock
+<input type='radio' id='paper' value='paper' v-model='selection'>
+Paper
+<input type='radio' id='scissors' value='scissors' v-model='selection'>
+Scissors
+</label>
+<button @click='runGame'>Submit</button>
+
+</div>
+
+
+
+
+This is a local domain is located at /Applications/XAMPP/htdocs/e28/practice
+
+</body>
+</html>
+	
