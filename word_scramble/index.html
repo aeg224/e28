@@ -1,0 +1,33 @@
+<html>
+<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
+<script src='myCode.js' defer></script>
+
+<style>
+.win{color: blue;}
+.lose{color: red};
+</style>
+
+
+<body>
+<h2>Week 5: Word Scramble</h2>
+
+<div id='wordScramble'>
+	Please Enter Your Name to Begin Gameplay <input type=text v-model='username' @keyup.enter=startGame()>
+	<button @click=startGame()>Start Game</button>
+	<p>
+		<div v-if='validName'>Game On, {{username}}
+	<p>
+		<h1>Word: {{scramble}}</h1>
+		<h3>Hint: {{secretHint}}</h3>
+		<br>
+		<input type=text v-model='guess' @keyup.enter=submitGuess()>
+		<button @click=submitGuess()>Submit Guess</button>
+	
+	<div v-if='guessSubmitted' :class='{win : isWin, lose : !isWin}'> {{results}} <button @click=restartGame()>Play Again</button></div>
+
+</div>
+</div>
+
+</body>
+</html>
+	
