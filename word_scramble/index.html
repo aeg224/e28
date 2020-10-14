@@ -23,10 +23,15 @@
 		<input type=text v-model='guess' @keyup.enter=submitGuess()>
 		<button @click=submitGuess()>Submit Guess</button>
 	
-	<div v-if='guessSubmitted' :class='{win : isWin, lose : !isWin}'> {{results}} <button @click=restartGame()>Play Again</button></div>
+	
 
+	<game-results :result=results :class='{win : isWin, lose : !isWin}'></game-results>
 </div>
 </div>
+
+
+<script type="text/x-template" id="results-detail"><div v-if>{{result}}</div></script>
+
 
 </body>
 </html>

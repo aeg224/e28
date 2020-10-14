@@ -1,3 +1,15 @@
+Vue.component('game-results', {
+	data: function(){
+		return {
+
+			text: 'hello world'
+		}
+	},
+	props: ['result'],
+	template: '#results-detail',
+})
+
+
 let app = new Vue({
 	el: '#wordScramble',
 	data: {
