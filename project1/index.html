@@ -6,15 +6,22 @@
 
 <div id='gameP1' @keyup.enter='runGame'>
 <label>Please Make Your Selection
-<input type='radio' id='rock' value='rock' v-model='selection'>
+<input type='radio' id='rock' value='rock' v-model.lazy='selection'>
 Rock
-<input type='radio' id='paper' value='paper' v-model='selection'>
+<input type='radio' id='paper' value='paper' v-model.lazy='selection'>
 Paper
-<input type='radio' id='scissors' value='scissors' v-model='selection'>
+<input type='radio' id='scissors' value='scissors' v-model.lazy='selection'>
 Scissors
 </label>
 <button @click='runGame'>Submit</button>
 
+
+<div v-if='gameStarted'>
+
+    Computer Selection: {{computerSelection}}
+    Your Selection: {{selection }}
+    {{feedback}}
+</div>
 </div>
 
 
