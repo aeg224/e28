@@ -6,6 +6,11 @@
 </head>
 <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
 <script src='myScript.js' defer></script>
+<style>
+    .win{color: blue;}
+    .lose{color: red;}
+    .draw{color: green;}
+</style>
 
 <body class='mx-5 bg-primary'>
     <nav class="navbar navbar-dark bg-secondary">
@@ -29,6 +34,7 @@
 
 
                 <div v-if='gameStarted'>
+                    <div :class='{win: isWin, lose: isLose, draw: isDraw}'>
                     <br>
                     Computer Selection: {{computerSelection}}
 
@@ -37,6 +43,7 @@
 
                     <br>
                     {{feedback}}
+                </div>
                     <div class="card text-white bg-success">
                         <div class="card-header">History</div>
                         <div class="card-body">

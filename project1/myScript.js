@@ -8,11 +8,15 @@ let app = new Vue({
 		options: ['rock', 'paper', 'scissors'],
 		computerSelection: '',
 		gameStarted: false,
+		isWin: false,
+		isLose: false,
+		isDraw: false,
 
 	},
         methods: {
 
 			runGame(){
+
 				console.log(this.selection); 
 				this.computerSelection=this.options[this.getRandomInt()];
 				console.log(this.computerSelection);
@@ -28,14 +32,23 @@ let app = new Vue({
 				if (this.selection == this.computerSelection){
 					this.runningScore.draw += 1;
 					this.gameHistory.push('Draw');
+					this.isWin=false;
+					this.isLose=false;
+					this.isDraw=true;
 				}
 				else if (this.selection == 'rock' && this.computerSelection == 'paper' || this.selection == 'paper' && this.computerSelection == 'scissors' || this.selection == 'scissors' && this.computerSelection == 'rock'){
 					this.runningScore.computerWin += 1;
 					this.gameHistory.push('Computer');
+					this.isWin=false;
+					this.isLose=true;
+					this.isDraw=false;
 				}
 				else {
 					this.runningScore.playerWin +=1;
 					this.gameHistory.push('Player');
+					this.isWin=true;
+					this.isLose=false;
+					this.isDraw=false;
 				}
 			},
 			resetHistory(){
