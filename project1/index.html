@@ -1,34 +1,78 @@
 <html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
 <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
 <script src='myScript.js' defer></script>
-<body>
-<h2>Rock Paper Scissors</h2>
 
-<div id='gameP1' @keyup.enter='runGame'>
-<label>Please Make Your Selection
-<input type='radio' id='rock' value='rock' v-model.lazy='selection'>
-Rock
-<input type='radio' id='paper' value='paper' v-model.lazy='selection'>
-Paper
-<input type='radio' id='scissors' value='scissors' v-model.lazy='selection'>
-Scissors
-</label>
-<button @click='runGame'>Submit</button>
-
-
-<div v-if='gameStarted'>
-
-    Computer Selection: {{computerSelection}}
-    Your Selection: {{selection }}
-    {{feedback}}
-</div>
-</div>
+<body class='mx-5 bg-primary'>
+    <nav class="navbar navbar-dark bg-secondary">
+        <span class="navbar-brand mb-0 h1">E-28 HW1</span>
+    </nav>
+    <div id='gameP1' @keyup.enter='runGame'>
+        <div class="card text-white bg-success">
+            <div class="card-header">Rock Paper Scissors</div>
+            <div class="card-body">
+                <h5 class="card-title">Make a Choice</h5>
+                <p class="card-text">
+                    <label>Please Make Your Selection
+                        <input type='radio' id='rock' value='rock' v-model.lazy='tempSelection'>
+                        Rock
+                        <input type='radio' id='paper' value='paper' v-model.lazy='tempSelection'>
+                        Paper
+                        <input type='radio' id='scissors' value='scissors' v-model.lazy='tempSelection'>
+                        Scissors
+                    </label>
+                    <button @click='runGame'>Submit</button>
 
 
+                <div v-if='gameStarted'>
+                    <br>
+                    Computer Selection: {{computerSelection}}
+
+                    <br>
+                    Your Selection: {{selection}}
+
+                    <br>
+                    {{feedback}}
+                    <div class="card text-white bg-success">
+                        <div class="card-header">History</div>
+                        <div class="card-body">
+                            <p class="card-text">
+                            <div class='row'>
+                                <div class='col'>
+                                    <h5>Score</h5>
+                                    Computer: {{runningScore.computerWin}}
+                                    <br>
+                                    Player: {{runningScore.playerWin}}
+                                    <br>
+                                    Draw: {{runningScore.draw}}
+                                    <br>
+                                </div>
+                            <div class='col'>
+                                <h5>Results</h5>
+                                <span v-for='(winner, index) in gameHistory'>
+                                    Round: {{index +1}}, Winner: {{winner}}<br>
+                                </span>
+                            </div>
+                        </div>
+
+                            <button @click='resetHistory'> Reset Game</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </p>
+
+    </div>
 
 
-This is a local domain is located at /Applications/XAMPP/htdocs/e28/practice
+
+    This is a local domain is located at /Applications/XAMPP/htdocs/e28/practice
 
 </body>
+
 </html>
-	
