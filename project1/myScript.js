@@ -51,12 +51,13 @@ Vue.component('navigation-header', {
 })
 
 
+
+
 /*	Parent Component
 //  purpose: 	to drive the Vue Application
 */
 let app = new Vue({
 	el: '#gameP1',
-
 // Contains ten variables used to run the game
 	data: {
 		tempSelection: "",

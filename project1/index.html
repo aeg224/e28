@@ -59,11 +59,11 @@
                 <h5 class="card-title">Make a Choice</h5>
                 <p class="card-text">
                     <label>Please Make Your Selection
-                        <input type='radio' id='rock' value='rock' v-model.lazy='tempSelection'>
+                        <input type='radio' id='rock' value='rock' v-model='tempSelection'>
                         Rock
-                        <input type='radio' id='paper' value='paper' v-model.lazy='tempSelection'>
+                        <input type='radio' id='paper' value='paper' v-model='tempSelection'>
                         Paper
-                        <input type='radio' id='scissors' value='scissors' v-model.lazy='tempSelection'>
+                        <input type='radio' id='scissors' value='scissors' v-model='tempSelection'>
                         Scissors
                     </label>
                     <button @click='runGame'>Submit</button>
