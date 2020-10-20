@@ -1,46 +1,53 @@
 <html>
 
 <head>
-    
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <style>
+    .all{
+        font-family: 'Share Tech Mono', monospace;
+         }
     .win {
-        color: blue;
+        color: gold;
     }
 
     .lose {
-        color: red;
+        color: indigo;
     }
 
     .draw {
-        color: green;
+        color: silver;
     }
 </style>
 
-<body class='mx-5 bg-primary'>
+<body class='mx-5 bg-dark all'>
 
     <script type="text/x-template" id="navigation-detail">
         <div>
             <nav class="navbar navbar-dark bg-secondary">
-                <span class="navbar-brand mb-0 h1">E-28 HW1</span>
+                <span class="navbar-brand mb-0 h1">{{text}} By: Alex Giannini</span>
             </nav>
         </div>
     </script>
 
     <script type="text/x-template" id="component-detail">
         <div>
+            <h3>
+        <br>Round: {{round}}</h3>
         <br>
+        <h5>
         Computer Selection: {{computer}}
 
         <br>
         Your Selection: {{user}}
-
+        </h5>
         <br>
+        <h3>
         {{feedback}}
+        </h3>
+        <br>
+        Submit another Answer To Play Again!
         </div>
     </script>
 
@@ -50,30 +57,32 @@
         <navigation-header></navigation-header>
 
 
-        <div class="card text-white bg-success">
+        <div class="card text-dark bg-success">
             <div class="card-header">Rock Paper Scissors</div>
             <div class="card-body">
                 <h5 class="card-title">Make a Choice</h5>
                 <p class="card-text">
-                    <label>Please Make Your Selection
+                    <label>Please Make Your Selection<br>
                         <input type='radio' id='rock' value='rock' v-model='tempSelection'>
                         Rock
                         <input type='radio' id='paper' value='paper' v-model='tempSelection'>
                         Paper
                         <input type='radio' id='scissors' value='scissors' v-model='tempSelection'>
                         Scissors
-                    </label>
+                    </label><br>
                     <button @click='runGame'>Submit</button>
 
                 <div v-if='gameStarted'>
-                    <game-feedback :user=selection :computer=computerSelection :class='{win: isWin, lose: isLose, draw: isDraw}'></game-feedback>
-
-                    <div class="card text-white bg-success">
+                    <center>
+                    <game-feedback :user=selection :computer=computerSelection :round=gameHistory.length :class='{win: isWin, lose: isLose, draw: isDraw}'></game-feedback>
+                </center>
+                    <div class="card text-white bg-info">
                         <div class="card-header">History</div>
                         <div class="card-body">
                             <p class="card-text">
                             <div class='row'>
                                 <div class='col'>
+                                    <center>
                                     <h5>Score</h5>
                                     Computer: {{runningScore.computerWin}}
                                     <br>
@@ -81,12 +90,15 @@
                                     <br>
                                     Draw: {{runningScore.draw}}
                                     <br>
+                                </center>
                                 </div>
                                 <div class='col'>
+                                    <center>
                                     <h5>Results</h5>
                                     <span v-for='(winner, index) in gameHistory'>
                                         Round: {{index +1}}, Winner: {{winner}}<br>
                                     </span>
+                                </center>
                                 </div>
                             </div>
 
@@ -103,7 +115,6 @@
     <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
     <script src='myScript.js' defer></script>
 
-    This is a local domain is located at /Applications/XAMPP/htdocs/e28/practice
 
 </body>
 

@@ -15,7 +15,7 @@ Vue.component('navigation-header', {
 })
 
 
-/*	component
+/*	component <game-feedback>
 //  purpose: 	to encapsulate all of the feedback data
 //  props: 		user, computer and result. These correspond with selection, computerSelection and feedback (from the parent component)
 //	template:	uses compnent-detail templated located in index.html
@@ -29,7 +29,7 @@ Vue.component('game-feedback', {
 			text: 'hello world'
 		}
 	},
-	props: ['user', 'computer'],
+	props: ['user', 'computer', 'round'],
 	template: '#component-detail',
 
 	// A computed variable that displays the correct feedback according to the selection.
