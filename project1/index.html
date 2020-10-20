@@ -2,27 +2,6 @@
 
 <head>
     
-    <script type="text/x-template" id="navigation-detail">
-        <div>
-            <nav class="navbar navbar-dark bg-secondary">
-                <span class="navbar-brand mb-0 h1">E-28 HW1</span>
-            </nav>
-        </div>
-    </script>
-
-    <script type="text/x-template" id="component-detail">
-        <div>
-        <br>
-        Computer Selection: {{computer}}
-
-        <br>
-        Your Selection: {{user}}
-
-        <br>
-        {{feedback}}
-        </div>
-    </script>
-
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -45,7 +24,26 @@
 
 <body class='mx-5 bg-primary'>
 
+    <script type="text/x-template" id="navigation-detail">
+        <div>
+            <nav class="navbar navbar-dark bg-secondary">
+                <span class="navbar-brand mb-0 h1">E-28 HW1</span>
+            </nav>
+        </div>
+    </script>
 
+    <script type="text/x-template" id="component-detail">
+        <div>
+        <br>
+        Computer Selection: {{computer}}
+
+        <br>
+        Your Selection: {{user}}
+
+        <br>
+        {{feedback}}
+        </div>
+    </script>
 
     <div id='gameP1' @keyup.enter='runGame'>
 
