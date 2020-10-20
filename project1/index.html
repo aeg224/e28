@@ -1,22 +1,58 @@
 <html>
 
 <head>
+    
+    <script type="text/x-template" id="navigation-detail">
+        <div>
+            <nav class="navbar navbar-dark bg-secondary">
+                <span class="navbar-brand mb-0 h1">E-28 HW1</span>
+            </nav>
+        </div>
+    </script>
+
+    <script type="text/x-template" id="component-detail">
+        <div>
+        <br>
+        Computer Selection: {{computer}}
+
+        <br>
+        Your Selection: {{user}}
+
+        <br>
+        {{feedback}}
+        </div>
+    </script>
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
 <script src='myScript.js' defer></script>
 <style>
-    .win{color: blue;}
-    .lose{color: red;}
-    .draw{color: green;}
+    .win {
+        color: blue;
+    }
+
+    .lose {
+        color: red;
+    }
+
+    .draw {
+        color: green;
+    }
 </style>
 
 <body class='mx-5 bg-primary'>
-    <nav class="navbar navbar-dark bg-secondary">
-        <span class="navbar-brand mb-0 h1">E-28 HW1</span>
-    </nav>
+
+
+
     <div id='gameP1' @keyup.enter='runGame'>
+
+
+        <navigation-header></navigation-header>
+
+
         <div class="card text-white bg-success">
             <div class="card-header">Rock Paper Scissors</div>
             <div class="card-body">
@@ -32,18 +68,9 @@
                     </label>
                     <button @click='runGame'>Submit</button>
 
-
                 <div v-if='gameStarted'>
-                    <div :class='{win: isWin, lose: isLose, draw: isDraw}'>
-                    <br>
-                    Computer Selection: {{computerSelection}}
+                    <game-feedback :user=selection :computer=computerSelection :class='{win: isWin, lose: isLose, draw: isDraw}'></game-feedback>
 
-                    <br>
-                    Your Selection: {{selection}}
-
-                    <br>
-                    {{feedback}}
-                </div>
                     <div class="card text-white bg-success">
                         <div class="card-header">History</div>
                         <div class="card-body">
@@ -58,13 +85,13 @@
                                     Draw: {{runningScore.draw}}
                                     <br>
                                 </div>
-                            <div class='col'>
-                                <h5>Results</h5>
-                                <span v-for='(winner, index) in gameHistory'>
-                                    Round: {{index +1}}, Winner: {{winner}}<br>
-                                </span>
+                                <div class='col'>
+                                    <h5>Results</h5>
+                                    <span v-for='(winner, index) in gameHistory'>
+                                        Round: {{index +1}}, Winner: {{winner}}<br>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
 
                             <button @click='resetHistory'> Reset Game</button>
                         </div>
