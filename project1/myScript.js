@@ -1,3 +1,18 @@
+/*	component navigation-header
+//  purpose: 	to encapsulate all of the games header
+//  props: 		none
+//	template:	uses navigation-detail templated located in index.html
+//	notes:		uses Bootstrap's navbar to display the contents of text
+*/
+Vue.component('navigation-header', {
+	data: function(){
+		return {
+
+			text: 'E28 Project 1'
+		}
+	},
+	template: '#navigation-detail',
+})
 
 
 /*	component
@@ -34,21 +49,6 @@ Vue.component('game-feedback', {
 })
 
 
-/*	component
-//  purpose: 	to encapsulate all of the games header
-//  props: 		none
-//	template:	uses navigation-detail templated located in index.html
-//	notes:		uses Bootstrap's navbar to display the contents of text
-*/
-Vue.component('navigation-header', {
-	data: function(){
-		return {
-
-			text: 'E28 Project 1'
-		}
-	},
-	template: '#navigation-detail',
-})
 
 
 

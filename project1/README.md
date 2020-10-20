@@ -1,11 +1,19 @@
 # Project 1
 
-## By Alex Giannini
+### By Alex Giannini
 
-Currently in prelimary stages...
+For project one, I created a Rock, Paper Scissors Game.
+
+The app uses bootstrap for styling and includes two components.
+
+### Component: <navigation-header>
+This compenent encapsulates the bootstrap navbar and does not receive any arguments.
+
+### Component: <game-feedback>
+This component is used to display the results of the game. It receives two props, the user selection and the computer selection. It uses a computed property to determine the winner and display the data.
 
 
-### Sources 
+## Sources 
 https://vuejs.org/v2/guide/forms.html#Radio
 https://getbootstrap.com/docs/4.0/components/navbar/
 
