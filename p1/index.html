@@ -7,6 +7,9 @@
 </head>
 
 <style>
+    [v-cloak] {
+        display: none
+    }
     .all {
         font-family: 'Share Tech Mono', monospace;
     }
@@ -54,7 +57,7 @@
         </div>
     </script>
 
-    <div id='gameP1' @keyup.enter='runGame'>
+    <div id='gameP1' v-cloak @keyup.enter='runGame'>
 
 
         <navigation-header></navigation-header>

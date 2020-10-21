@@ -79,10 +79,12 @@ let app = new Vue({
 
 		// Completes a round of the game. Gets the user and computer's selection and records the results
 		runGame() {
+			if (this.tempSelection.length != 0){
 			this.computerSelection = this.options[this.getRandomInt()];
 			this.selection = this.tempSelection;
 			this.gameStarted = true;			// reveals div in index.html
 			this.recordResults();
+			}
 		},
 
 		// Random Number Generator
