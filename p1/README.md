@@ -27,7 +27,7 @@ The game keeps track of the history using an object keeping track of the scores 
 The resetHistory() method resets the history without refreshing the page. It does this by resetting the variables, including the user selection, the computer selection and the gameStarted boolean (which determines if the game-results component is displayed).
 
 ### Notes
-One of the issues that arose, was the location of the component's templates prevented my app from rendering properly. A similar issue was raised by [another student](https://github.com/susanBuck/e28-fall20/issues/28) whose issue-thread was helpful. In my situation, the 
+One of the issues that arose, was the location of the component's templates prevented my app from rendering properly. A similar issue was raised by [another student](https://github.com/susanBuck/e28-fall20/issues/28) whose issue-thread was helpful.
 
 ## Sources 
 
