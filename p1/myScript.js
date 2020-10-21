@@ -5,7 +5,7 @@
 //	notes:		uses Bootstrap's navbar to display the contents of text
 */
 Vue.component('navigation-header', {
-	data: function(){
+	data: function () {
 		return {
 
 			text: 'E28 Project 1'
@@ -23,7 +23,7 @@ Vue.component('navigation-header', {
 //	notes:		component implements dynamic styling - locaed in index.html
 */
 Vue.component('game-feedback', {
-	data: function(){
+	data: function () {
 		return {
 
 			text: 'hello world'
@@ -34,14 +34,14 @@ Vue.component('game-feedback', {
 
 	// A computed variable that displays the correct feedback according to the selection.
 	computed: {
-		feedback(){
-			if (this.user.length == 0 ){
+		feedback() {
+			if (this.user.length == 0) {
 				return "";
 			}
-			else if (this.user == this.computer){
+			else if (this.user == this.computer) {
 				return 'Draw!';
 			}
-			else if (this.user == 'rock' && this.computer == 'paper' || this.user == 'paper' && this.computer == 'scissors' || this.user == 'scissors' && this.computer == 'rock'){
+			else if (this.user == 'rock' && this.computer == 'paper' || this.user == 'paper' && this.computer == 'scissors' || this.user == 'scissors' && this.computer == 'rock') {
 				return 'You Lose';
 			}
 			else {
@@ -61,12 +61,12 @@ Vue.component('game-feedback', {
 */
 let app = new Vue({
 	el: '#gameP1',
-// Contains ten variables used to run the game
+	// Contains ten variables used to run the game
 	data: {
 		tempSelection: "",
 		selection: "",
 		computerSelection: '',
-		runningScore: {computerWin: 0, playerWin: 0, draw: 0},
+		runningScore: { computerWin: 0, playerWin: 0, draw: 0 },
 		gameHistory: [],
 		options: ['rock', 'paper', 'scissors'],
 		gameStarted: false,
@@ -78,47 +78,47 @@ let app = new Vue({
 	methods: {
 
 		// Completes a round of the game. Gets the user and computer's selection and records the results
-		runGame(){
-			this.computerSelection=this.options[this.getRandomInt()];
-			this.selection=this.tempSelection;
-			this.gameStarted=true;			// reveals div in index.html
+		runGame() {
+			this.computerSelection = this.options[this.getRandomInt()];
+			this.selection = this.tempSelection;
+			this.gameStarted = true;			// reveals div in index.html
 			this.recordResults();
 		},
 
 		// Random Number Generator
-		getRandomInt(){
+		getRandomInt() {
 			return Math.floor(Math.random() * this.options.length);
 		},
 
 		// Records the results in gameHistory and runningScore
 		// Modifys the isWin variables for use in dynamic styling
-		recordResults(){
-			if (this.selection == this.computerSelection){
+		recordResults() {
+			if (this.selection == this.computerSelection) {
 				this.runningScore.draw += 1;
 				this.gameHistory.push('Draw');
-				this.isWin=false;
-				this.isLose=false;
-				this.isDraw=true;
+				this.isWin = false;
+				this.isLose = false;
+				this.isDraw = true;
 			}
-			else if (this.selection == 'rock' && this.computerSelection == 'paper' || this.selection == 'paper' && this.computerSelection == 'scissors' || this.selection == 'scissors' && this.computerSelection == 'rock'){
+			else if (this.selection == 'rock' && this.computerSelection == 'paper' || this.selection == 'paper' && this.computerSelection == 'scissors' || this.selection == 'scissors' && this.computerSelection == 'rock') {
 				this.runningScore.computerWin += 1;
 				this.gameHistory.push('Computer');
-				this.isWin=false;
-				this.isLose=true;
-				this.isDraw=false;
+				this.isWin = false;
+				this.isLose = true;
+				this.isDraw = false;
 			}
 			else {
-				this.runningScore.playerWin +=1;
+				this.runningScore.playerWin += 1;
 				this.gameHistory.push('Player');
-				this.isWin=true;
-				this.isLose=false;
-				this.isDraw=false;
+				this.isWin = true;
+				this.isLose = false;
+				this.isDraw = false;
 			}
 		},
 
 		// Resets the game history and running schore
 		// Called on by reset button in index.html
-		resetHistory(){
+		resetHistory() {
 			this.runningScore.computerWin = 0;
 			this.runningScore.playerWin = 0;
 			this.runningScore.draw = 0;
@@ -126,7 +126,7 @@ let app = new Vue({
 			this.selection = "";
 			this.computerSelection == "";
 			this.gameStarted = false;
-			}
+		}
 	},
 
 

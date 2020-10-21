@@ -1,13 +1,16 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <style>
-    .all{
+    .all {
         font-family: 'Share Tech Mono', monospace;
-         }
+    }
+
     .win {
         color: gold;
     }
@@ -74,16 +77,17 @@
 
                 <div v-if='gameStarted'>
                     <center>
-                    <game-feedback :user=selection :computer=computerSelection :round=gameHistory.length :class='{win: isWin, lose: isLose, draw: isDraw}'></game-feedback>
-                </center>
-            </div>
-                    <div class="card text-white bg-info">
-                        <div class="card-header">History</div>
-                        <div class="card-body">
-                            <p class="card-text">
-                            <div class='row'>
-                                <div class='col'>
-                                    <center>
+                        <game-feedback :user=selection :computer=computerSelection :round=gameHistory.length
+                            :class='{win: isWin, lose: isLose, draw: isDraw}'></game-feedback>
+                    </center>
+                </div>
+                <div class="card text-white bg-info">
+                    <div class="card-header">History</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                        <div class='row'>
+                            <div class='col'>
+                                <center>
                                     <h5>Score</h5>
                                     Computer: {{runningScore.computerWin}}
                                     <br>
@@ -92,20 +96,20 @@
                                     Draw: {{runningScore.draw}}
                                     <br>
                                 </center>
-                                </div>
-                                <div class='col'>
-                                    <center>
+                            </div>
+                            <div class='col'>
+                                <center>
                                     <h5>Results</h5>
                                     <span v-for='(winner, index) in gameHistory'>
                                         Round: {{index +1}}, Winner: {{winner}}<br>
                                     </span>
                                 </center>
-                                </div>
                             </div>
-
-                            <button @click='resetHistory'> Reset Game</button>
                         </div>
+
+                        <button @click='resetHistory'> Reset Game</button>
                     </div>
+                </div>
             </div>
         </div>
         </p>
