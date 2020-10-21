@@ -1,9 +1,23 @@
 # Project 1
++ By: Alexander Giannini
++ Production URL: http://e28p1.alex-giannini.me/
 
-## By Alex Giannini
+## Outside resources
+Vue Radio Buttons: https://vuejs.org/v2/guide/forms.html#Radio
+
+Bootstrap: https://getbootstrap.com/
+
+Bootstrap NavBar: https://getbootstrap.com/docs/4.0/components/navbar/
+
+Bootstrap Card: https://getbootstrap.com/docs/4.5/components/card/
+
+Array Splice (for resetting game): https://www.w3schools.com/jsref/jsref_splice.asp
+
+Font: https://fonts.google.com/specimen/Share+Tech+Mono?preview.text=Rock&preview.text_type=custom&category=Monospace&sidebar.open=true&selection.family=Share+Tech+Mono
+
+## Notes for instructor
 
 For project one, I created a Rock, Paper Scissors Game. The app uses bootstrap for styling and includes two components.
-
 
 ### Base Styling
 The app uses Bootstrap for styling. I decided to do this because it provides clean and easy-to-use styling without having to implement a lot of custom CSS. The app uses two nested cards and a navbar (links to the bootstrap page are listed in sources).
