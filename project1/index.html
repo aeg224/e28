@@ -76,6 +76,7 @@
                     <center>
                     <game-feedback :user=selection :computer=computerSelection :round=gameHistory.length :class='{win: isWin, lose: isLose, draw: isDraw}'></game-feedback>
                 </center>
+            </div>
                     <div class="card text-white bg-info">
                         <div class="card-header">History</div>
                         <div class="card-body">
@@ -105,7 +106,6 @@
                             <button @click='resetHistory'> Reset Game</button>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
         </p>

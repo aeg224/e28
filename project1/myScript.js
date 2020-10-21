@@ -35,7 +35,10 @@ Vue.component('game-feedback', {
 	// A computed variable that displays the correct feedback according to the selection.
 	computed: {
 		feedback(){
-			if (this.user == this.computer){
+			if (this.user.length == 0 ){
+				return "";
+			}
+			else if (this.user == this.computer){
 				return 'Draw!';
 			}
 			else if (this.user == 'rock' && this.computer == 'paper' || this.user == 'paper' && this.computer == 'scissors' || this.user == 'scissors' && this.computer == 'rock'){
@@ -72,57 +75,59 @@ let app = new Vue({
 		isDraw: false,
 
 	},
-        methods: {
+	methods: {
 
-			// Completes a round of the game. Gets the user and computer's selection and records the results
-			runGame(){
-				this.computerSelection=this.options[this.getRandomInt()];
-				this.selection=this.tempSelection;
-				this.gameStarted=true;			// reveals div in index.html
-				this.recordResults();
-			},
+		// Completes a round of the game. Gets the user and computer's selection and records the results
+		runGame(){
+			this.computerSelection=this.options[this.getRandomInt()];
+			this.selection=this.tempSelection;
+			this.gameStarted=true;			// reveals div in index.html
+			this.recordResults();
+		},
 
-			// Random Number Generator
-			getRandomInt(){
-				return Math.floor(Math.random() * this.options.length);
-			},
+		// Random Number Generator
+		getRandomInt(){
+			return Math.floor(Math.random() * this.options.length);
+		},
 
-			// Records the results in gameHistory and runningScore
-			// Modifys the isWin variables for use in dynamic styling
-			recordResults(){
-				if (this.selection == this.computerSelection){
-					this.runningScore.draw += 1;
-					this.gameHistory.push('Draw');
-					this.isWin=false;
-					this.isLose=false;
-					this.isDraw=true;
-				}
-				else if (this.selection == 'rock' && this.computerSelection == 'paper' || this.selection == 'paper' && this.computerSelection == 'scissors' || this.selection == 'scissors' && this.computerSelection == 'rock'){
-					this.runningScore.computerWin += 1;
-					this.gameHistory.push('Computer');
-					this.isWin=false;
-					this.isLose=true;
-					this.isDraw=false;
-				}
-				else {
-					this.runningScore.playerWin +=1;
-					this.gameHistory.push('Player');
-					this.isWin=true;
-					this.isLose=false;
-					this.isDraw=false;
-				}
-			},
+		// Records the results in gameHistory and runningScore
+		// Modifys the isWin variables for use in dynamic styling
+		recordResults(){
+			if (this.selection == this.computerSelection){
+				this.runningScore.draw += 1;
+				this.gameHistory.push('Draw');
+				this.isWin=false;
+				this.isLose=false;
+				this.isDraw=true;
+			}
+			else if (this.selection == 'rock' && this.computerSelection == 'paper' || this.selection == 'paper' && this.computerSelection == 'scissors' || this.selection == 'scissors' && this.computerSelection == 'rock'){
+				this.runningScore.computerWin += 1;
+				this.gameHistory.push('Computer');
+				this.isWin=false;
+				this.isLose=true;
+				this.isDraw=false;
+			}
+			else {
+				this.runningScore.playerWin +=1;
+				this.gameHistory.push('Player');
+				this.isWin=true;
+				this.isLose=false;
+				this.isDraw=false;
+			}
+		},
 
-			// Resets the game history and running schore
-			// Called on by reset button in index.html
-			resetHistory(){
-				console.log('reset history');
-				this.runningScore.computerWin = 0;
-				this.runningScore.playerWin = 0;
-				this.runningScore.draw = 0;
-				this.gameHistory.splice(0, this.gameHistory.length);
-				}
-        },
+		// Resets the game history and running schore
+		// Called on by reset button in index.html
+		resetHistory(){
+			this.runningScore.computerWin = 0;
+			this.runningScore.playerWin = 0;
+			this.runningScore.draw = 0;
+			this.gameHistory.splice(0, this.gameHistory.length);
+			this.selection = "";
+			this.computerSelection == "";
+			this.gameStarted = false;
+			}
+	},
 
 
 })
