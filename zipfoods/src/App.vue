@@ -1,11 +1,17 @@
 <template>
   <div id="app">
     <img alt="ZipFoods logo" id="logo" src="@/assets/images/zipfoods-logo.png">
+<nav>
+    <ul>
+        <li v-for='link in links' :key='link'>
+            <a href='#' @click='page = link'>{{ link }}</a>
+        </li>
+    </ul>
+</nav>
+
+<component v-bind:is='linkComponents[page]'></component>
 
 
-    <home-page></home-page>
-    <products-page></products-page>
-    <categories-page></categories-page>
 
   </div>
 </template>
@@ -17,6 +23,19 @@ import CategoriesPage from '@/components/pages/CategoriesPage.vue';
 
 export default {
   name: 'App',
+  data: function(){
+    return{
+    page: 'home',
+
+    links: ['home', 'products', 'categories'],
+
+    linkComponents: {
+        home: 'home-page',
+        products: 'products-page',
+        categories: 'categories-page'
+    } 
+   };
+  },
   components: {
     'home-page': HomePage,
     'products-page': ProductsPage,
