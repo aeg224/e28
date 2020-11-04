@@ -1,6 +1,6 @@
 <template>
     <div class="product">
-        <div class="product-name">{{ product.name }}</div>
+        <div class="product-name"><a :href="'/products/'+ product.id">{{ product.name }}</a></div>
         <img
             class="product-thumb"
             :src="require('@/assets/images/products/'+product.id+'.jpg')"
@@ -17,6 +17,7 @@
         props: ['product'],
         data: function(){
             return{
+                id_info: this.product.id,
             };
         }
     };
