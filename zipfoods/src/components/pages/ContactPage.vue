@@ -1,12 +1,9 @@
-
 <template>
 <div>
-    <p> Your One Stop Shop For Groceries In The DC Area!</p>
-
+    <p> Please Take A Look At Some Of My Projects Listed Below!</p>
     <show-featured :category='"vegetables"'></show-featured>
 </div>
 </template>
-
 
 <script>
 import ShowFeatured from '@/components/ShowFeatured.vue';
@@ -14,7 +11,7 @@ import ShowFeatured from '@/components/ShowFeatured.vue';
 export default {
     name: '',
     components: {
-      ShowFeatured: ShowFeatured,
+    'show-featured': ShowFeatured,
   },
 
 

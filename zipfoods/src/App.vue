@@ -25,12 +25,13 @@ export default {
   name: 'App',
   data: function(){
     return{
-      links: ['home', 'products', 'categories'],
+      links: ['home', 'projects', 'categories'],
 
       paths: {
         home: '/',
-        products: '/products',
+        projects: '/projects',
         categories: '/categories',
+        contact: '/contact',
       },
    };
   },

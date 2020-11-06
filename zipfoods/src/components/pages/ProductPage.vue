@@ -1,9 +1,10 @@
 <template>
     <div>
         <div class="product-name"><h1>{{productName}}</h1></div>
-
-        <img class="product-thumb" :src="require('@/assets/images/products/'+id+'.jpg')"/>
-
+        <img
+            class="product-thumb"
+            :src="require('@/assets/images/products/'+id+'.jpg')"
+        />
         <p class="product-description">{{ productDescription }}</p>
         <div class="product-price">${{ productPrice }}</div>
     </div>

@@ -6,6 +6,7 @@ import HomePage from '@/components/pages/HomePage.vue';
 import ProductsPage from '@/components/pages/ProductsPage.vue';
 import CategoriesPage from '@/components/pages/CategoriesPage.vue';
 import ProductPage from '@/components/pages/ProductPage.vue';
+import ContactPage from '@/components/pages/ContactPage.vue';
 
 
 Vue.config.productionTip = false
@@ -15,8 +16,9 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', component: HomePage },
-    { path: '/products', component: ProductsPage },
+    { path: '/projects', component: ProductsPage },
     { path: '/categories', component: CategoriesPage },
+    { path: '/contact', component: ContactPage },
     { path: '/products/:id', component: ProductPage, props: true }
   ]
 })
