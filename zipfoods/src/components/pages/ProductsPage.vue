@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import { products } from '@/products.js';
+    import { axios } from '@/app.js';
     import ShowProduct from '@/components/ShowProduct.vue';
 
     export default {
@@ -20,9 +20,14 @@
         },
         data: function(){
             return{
-                products: products
+                products: [],
             };
         },
+        mounted(){
+            axios.get('/product').then((response) => {
+                console.log(response);
+            })
+        }
     }
 </script>
 
