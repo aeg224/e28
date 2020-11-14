@@ -8,15 +8,14 @@
 </template>
 
 <script>
-import { products } from '@/products.js';
 
 export default {
     name: '',
     data: function(){
         return {
-            products: products,
          };
     },
+    props : ['products'],
     computed: {
         categories() {
         let categories = this.products.map(product => product.categories);
@@ -24,7 +23,7 @@ export default {
 
         // Return unique, sorted categories
         return [...new Set(mergedCategories)].sort();
-}
+    }
     }
 
 

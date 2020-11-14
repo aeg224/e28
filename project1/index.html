@@ -1,0 +1,34 @@
+<html>
+<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
+<script src='myScript.js' defer></script>
+<body>
+<h2>My Practice App (Project 1 Init)</h2>
+
+<div id='shoppingList'>
+<label>Add An Item To The List
+<input type=text v-model='listItem'>
+</label>
+<button v-on:click='listItems.push(listItem)'>Submit</button>
+<p v-if='listItems.length !=0'>
+Items in List: {{listItems.length}}
+</p>
+<p v-if='listItems.length == 0'>
+No Items to display
+</p>
+<ul>
+<li v-for='item in listItems'>{{item}}</li>
+</ul>
+
+
+{{ listItems }}
+
+</div>
+
+
+
+
+This is local domain is located at /Applications/XAMPP/htdocs/e28/practice
+
+</body>
+</html>
+	
