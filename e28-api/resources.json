@@ -1,4 +1,51 @@
 {
+
+    "contactForm": {
+        "name": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:5"
+            ]
+        },
+        "email": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:5"
+            ]
+        },
+        "message": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:5"
+            ]
+        }
+    },
+        "comments": {
+        "name": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:5"
+            ]
+        },
+        "comment": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:10"
+            ]
+        },
+        "parkId": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:2"
+            ]
+        }
+    },
     "product": {
         "name": {
             "type": "string",

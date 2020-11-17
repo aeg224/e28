@@ -7,11 +7,10 @@
   <div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#1"><h1>NPIA - National Park Information App</h1></a>
-  <div v-if='!notValidated' class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#2">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#3">Park List</a>
-      <a class="nav-item nav-link" href="#4">Contact Us</a>
+      <a class="nav-item nav-link active" href="/">Park List <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/contact">Contact Us</a>
     </div>
   </div>
 </nav>
@@ -26,6 +25,9 @@ export default {
                 //validated: true,
                 name: 'Nav',
             }
+        },
+        mounted(){
+          //console.log(this.notValidated);
         }
     }
 </script>
