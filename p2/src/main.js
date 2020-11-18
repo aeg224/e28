@@ -5,11 +5,8 @@ import MasterParkList from '@/components/MasterParkList.vue';
 import ParkPage from '@/components/ParkPage.vue';
 import ContactPage from '@/components/ContactPage.vue';
 
-
-
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.use(VueRouter);
-
 
 const router = new VueRouter({
   mode: 'history',
@@ -21,8 +18,7 @@ const router = new VueRouter({
 })
 
 
-
 new Vue({
-  router: router, 
+  router: router,
   render: h => h(App),
 }).$mount('#app')
