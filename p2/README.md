@@ -2,10 +2,10 @@
 + By: Alexander Giannini
 + Production URL: http://e28p2.alex-giannini.me/
 
-My Application uses the [National Park Service API](nps.gov/subjects/developer/api-documentation.htm) to generate pages on each national park in the US. Also, it uses the e28 API to store and display comments on the individual park pages. And, it uses the e28 API to store comments submitted via the comments page. 
+My Application uses the [National Park Service API](nps.gov/subjects/developer/api-documentation.htm) to generate pages on each national park in the US. Also, it uses the e28 API to store and display comments on the individual park pages. And, it uses the e28 API to store comments submitted via the Contact Us page. 
 
 ## Pages summary
-My application contains three routes. They correspond with the 'Master Park List' page, the 'Individual Park' page and the 'Contact Us' page. 
+My application contains three routes. They correspond with the 'Master Park List' component, the 'Individual Park' component and the 'Contact Us' component. 
 
 ### 'Master Park List' page
 This page makes the NPS API call. It does this with an Axios get request. Because there are about 500 National Parks, I limit the call to 50 at a time. Image and title are displayed in bootstrap cards. The 'More Info' button leads to that specific parks' 'Individual Park' page.
@@ -40,25 +40,30 @@ This call is made when a comment is submitted via the 'Individual Park' page. It
 e28 '/contactForm' POST
 This call is made when a contact message is sent to via the contact page. The data is stored in the e28 API, though it is not displayed in the app. To confirm the information is displayed correctly, check the e28-api page @ http://e28-api.alex-giannini.me/
 
-NPS 'https://developer.nps.gov/api/v1/parks?' GET
+NPS API GET
 This call is made when retrieving data from the NPS API. Some of the API calls include the LIMIT parameter and some include the parkId.
 
 ## Outside resources
-Bootstrap: https://getbootstrap.com/docs/4.0/components/navbar/
+Bootstrap: https://getbootstrap.com/
+Bootstrap NavBar: https://getbootstrap.com/docs/4.0/components/navbar/
 Bootstrap Form Template: https://getbootstrap.com/docs/4.0/components/forms/
 
 Helped Applying Background color to whole Vue App: https://stackoverflow.com/questions/54418163/background-color-doesnt-apply-to-whole-page-vue-js
 
 Post with Axios: https://masteringjs.io/tutorials/axios/post
 
-Emiting from withing a method: https://forum.vuejs.org/t/vuejs-emitting-a-custom-event-within-a-function-in-methods-object/22577
+Emiting from within a method: https://forum.vuejs.org/t/vuejs-emitting-a-custom-event-within-a-function-in-methods-object/22577
 
 Checking for Undefined: https://stackoverflow.com/questions/3390396/how-can-i-check-for-undefined-in-javascript
 
 Interpolation within Component: https://stackoverflow.com/questions/43211760/how-to-solve-interpolation-inside-attributes-has-been-removed-use-v-bind-or-the
 
 ## Notes for instructor
+Initially, I was going to build a portfolio page. Then I decided I wanted to use a outside API so I searched and found the National Parks Services API.
 
+I first created the initial Master Park List componenet. Then, I implemented the Router and created the individual parks pages. Then, I modified the e28 API to accept comments, and created the comment functionality. Finally, I created the Contact Us Page and modified the e28 API to accept messages.
+
+This project was very productive for me, and allowed me to explore many of the topics covered in class. If I had more time, I would have improved the efficiency of the app by only having one API call and incorporated login functionality. Wh
 
 
 
