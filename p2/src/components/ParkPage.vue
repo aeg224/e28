@@ -1,8 +1,3 @@
-<!--
-Main component
-Purpose: to manage the app's ux.
-!-->
-
 <template>
 <div class="text-light bg-dark">
 <center><h2> {{parkData.fullName}}</h2></center>
@@ -66,9 +61,7 @@ For more information on directions, please visit: {{parkData.directionsUrl}}
             <small v-if="showCommentError" id="errorMessage" class="form-text text-danger">{{commentError}}</small>
         </div>
         </form>
-        <p class="card-text">
-          You Must Login or Register To Use The Application.
-        </p>
+        <p class="card-text">You Must Login or Register To Use The Application.</p>
         <button @click=submitComment() type="submit" class="mb-3 px-3 btn btn-primary">Submit</button>
         </div>
 
@@ -86,12 +79,9 @@ For more information on directions, please visit: {{parkData.directionsUrl}}
 <script>
 
 import { axios } from '@/app.js';
-//import CommentBox from '@/components/CommentBox.vue'
-//import Vue from 'vue';
 
 export default {
   components: {
-  //  'comment-box': CommentBox
   },
   props: ['id'],
     data() {
@@ -114,9 +104,7 @@ export default {
           isLoggedIn(){
             console.log('logged in app');
             this.notValidated=false;
-            this.$emit('isLoggedIn');
-            
-           // this.getParkData();
+            this.$emit('isLoggedIn');            
           },
           submitComment(){
             this.resetErrors();
@@ -146,8 +134,7 @@ export default {
                     this.commentError=error.comment[0];
                     this.showCommentError=true;
                 }
-
-            },       
+            },
             resetErrors(){
               this.showNameError=false;
               this.showCommentError=false;
@@ -156,8 +143,6 @@ export default {
             console.log("getting comments");
              axios.get('/comments').then((response) => {
               response.data.comments.forEach(this.cleanComments);
-              //this.parkComments = response.data.data[0];
-              
           });             
           },
           cleanComments(comment){
@@ -169,12 +154,10 @@ export default {
           },
           getParkData(){
             console.log('getting park data');
-            
             axios.get('https://developer.nps.gov/api/v1/parks?parkCode='+this.id+'&api_key=be6wTQN5WMcabP51rTT9JAclkBjRb5Fhaj15L4dP').then((response) => {
               console.log(response);
               this.parkData = response.data.data[0];
               console.log(this.parkData);
-              
           });
           },
 
@@ -183,7 +166,6 @@ export default {
           this.getParkData();
           this.getParkComments();
           console.log('is this printing');
-         // console.log(this.parks);
         },
         computed: {
           parkComments2(){

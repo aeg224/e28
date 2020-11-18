@@ -1,8 +1,3 @@
-<!--
-
-!-->
-
-
 <template>
   <div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,17 +17,14 @@ export default {
         props : ['notValidated'],
         data() {
             return {
-                //validated: true,
                 name: 'Nav',
             }
         },
         mounted(){
-          //console.log(this.notValidated);
         }
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 a {
     color: red;

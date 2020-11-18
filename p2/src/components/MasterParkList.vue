@@ -1,11 +1,5 @@
-<!--
-Main component
-Purpose: to manage the app's ux.
-!-->
-
 <template>
 <div>
-  <button class='text-right"' @click="signOut"> Signs Out</button>
     <auth-gate v-on:isLoggedIn="isLoggedIn()" v-if="notValidated"></auth-gate>
     <div v-if="!notValidated">
 
@@ -25,6 +19,7 @@ Purpose: to manage the app's ux.
         </div>
     </div>
     </div>
+      <h3>{{LIMIT}} Results Per Page: <button @click='changeResults(1)'>1</button><button @click='changeResults(2)'>2</button><button @click='changeResults(3)'>3</button><button @click='changeResults(4)'>4</button><button @click='changeResults(5)'>5</button><button @click='changeResults(1)'>6</button><button @click='changeResults(2)'>7</button><button @click='changeResults(3)'>8</button><button @click='changeResults(4)'>9</button><button @click='changeResults(5)'>10</button> </h3>
 </div>
 </template>
 
