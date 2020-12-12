@@ -6,6 +6,7 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+
     <nav-bar></nav-bar>
 
     <router-view :parks="parks" v-on:isLoggedIn="isLoggedIn()"></router-view>
@@ -35,10 +36,12 @@ export default {
         //    localStorage.notValidated=false;
         //    this.notValidated=false;
              // this.getParkData();
-          },
+          },    
 
   },
   mounted() {},
+    computed: {
+  },
 };
 </script>
 

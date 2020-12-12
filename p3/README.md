@@ -70,3 +70,8 @@ This project was very productive for me, and allowed me to explore many of the t
 
 
 
+
+
+ADDED FOR p3
+
+https://stackoverflow.com/questions/43027499/vuex-state-on-page-refresh - persist state

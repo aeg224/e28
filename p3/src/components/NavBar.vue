@@ -29,6 +29,7 @@ export default {
       axios.post('http://e28-api.aeg224.loc/logout').then((response) => {
           console.log(response);
           // If the registration cannot be processed, an error message is displayed
+          
 
           if (!response.data.success){
               console.log(response);

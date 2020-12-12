@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div v-if='validated'><auth-gate v-on:logIn="logIn()"></auth-gate></div>
+    <div v-if='validated' >
+      <auth-gate v-on:logIn="logIn()" v-cloak></auth-gate></div>
 
     <div v-if='!validated'>
-
-      Hi {{ }}
+      Num {{pageNum}}
 
       <button @click='addFavorite()'>Add Favorite</button>
       <button @click='removeFavorite()'>Remove Favorite</button>
@@ -115,39 +115,10 @@ export default {
       this.validated=false;
     },
     addFavorite(){
-
-          axios.post('http://e28-api.aeg224.loc/favorite', {
-                product_id: 5,
-            }).then((response) => {
-                console.log(response.data.success);
-
-                if (response.data.success){
-                    console.log(response.data);
-                    console.log("should add");
-                }
-                else{
-                    console.log(response.data.errors);
-                    console.log("bad input");
-                    response.data.errors.forEach(this.setErrors);
-                }
-            });
-
+      this.$store.commit('setPageNum', 1);
     },
     removeFavorite(){
-          axios.delete('http://e28-api.aeg224.loc/favorite/5').then((response) => {
-                console.log(response.data.success);
-
-                if (response.data.success){
-                    console.log(response.data);
-                    console.log("should add");
-                }
-                else{
-                    console.log(response.data.errors);
-                    console.log("bad input");
-                    response.data.errors.forEach(this.setErrors);
-                }
-            });
-
+      this.$store.commit('setPageNum', -1);
     },
 
 // Makes the API Call to the NPS API
@@ -182,6 +153,8 @@ export default {
 // Updates the Parks according to the button pressed
     changeResults(num) {
       console.log("this.page is now " + num);
+      this.$store.commit('setPageNum', num);
+      console.log('page num is '+ this.pageNum)
       this.page = num;
       this.getParkData();
     },
@@ -190,6 +163,9 @@ export default {
     },
   },
   mounted() {
+    console.log("page num is is");
+    console.log(this.pageNum);
+    this.page = this.pageNum;
     this.getParkData();
     console.log('calling auth to determine validation')
       axios.post('http://e28-api.aeg224.loc/auth', {
@@ -209,9 +185,17 @@ export default {
             console.log(this.validated);
 
   },
-  computed: {},
+  computed: {
+    pageNum(){
+      return this.$store.state.pageNum;
+    }
+
+  },
 };
 </script>
 
 <style>
+[v-cloak] {
+  display: none;
+}
 </style>
