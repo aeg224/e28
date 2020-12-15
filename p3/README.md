@@ -2,21 +2,30 @@ COMPLETE README
 COMPLETE TESTS
 Add Server Side Authentication
 change name of Vuex.store
-allow form submission on enter
-valid registration should redirect to login
-complete tests
-
+FIX title of page (says p2 but should be p3)
+change favicon
 
 
 # Project 3
-+ By: *your first and last name*
-+ Production URL: <http://e28p3.yourdomain.com>
++ By: Alexander Giannini
++ Production URL: <http://e28p3.alex-giannini.me>
 
 ## Outside resources
-*Your list of outside resources go here*
+
+Persist State Plugin for Vuex: https://stackoverflow.com/questions/43027499/vuex-state-on-page-refresh
+Bootstrap: https://getbootstrap.com/
+Bootstrap NavBar: https://getbootstrap.com/docs/4.0/components/navbar/
+Bootstrap Form Template: https://getbootstrap.com/docs/4.0/components/forms/
+
+Helped Applying Background color to whole Vue App: https://stackoverflow.com/questions/54418163/background-color-doesnt-apply-to-whole-page-vue-js
+
+Post with Axios: https://masteringjs.io/tutorials/axios/post
+Emiting from within a method: https://forum.vuejs.org/t/vuejs-emitting-a-custom-event-within-a-function-in-methods-object/22577
+Checking for Undefined: https://stackoverflow.com/questions/3390396/how-can-i-check-for-undefined-in-javascript
+Interpolation within Component: https://stackoverflow.com/questions/43211760/how-to-solve-interpolation-inside-attributes-has-been-removed-use-v-bind-or-the
+
 
 ## Notes for instructor
-*Any notes for me to refer to while grading; if none, omit this section*
 
 
 
@@ -99,5 +108,3 @@ This project was very productive for me, and allowed me to explore many of the t
 
 
 ADDED FOR p3
-
-https://stackoverflow.com/questions/43027499/vuex-state-on-page-refresh - persist state
