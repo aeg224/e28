@@ -19,20 +19,20 @@
         <div class="form-group">
             <label for="email">Email address</label>
             <input v-model='username' type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-            <small v-if='showEmailError' id="errorMessage" class="form-text text-danger">{{emailError}}</small>
+            <small v-if='showEmailError' id="errorMessage1" class="form-text text-danger">{{emailError}}</small>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
             <input v-model='password' type="password" class="form-control" id="password" placeholder="Password">
-            <small v-if='showPasswordError' id="errorMessage" class="form-text text-danger">{{passwordError}}</small>
-            <small v-if='showCredentialError' id="errorMessage" class="form-text text-danger">{{credentialError}}</small>
+            <small v-if='showPasswordError' id="errorMessage2" class="form-text text-danger">{{passwordError}}</small>
+            <small v-if='showCredentialError' id="errorMessage3" class="form-text text-danger">{{credentialError}}</small>
         </div>
 
         </form>
                 <p class="card-text">
           Please Login or Register To Use The Application.
         </p>
-        <button @click=checkLogin() type="submit" class="mb-3 px-3 btn btn-primary">Submit</button>
+        <button id='submitLogin' @click=checkLogin() type="submit" class="mb-3 px-3 btn btn-primary">Submit</button>
 
  <!---->
 </div>
@@ -68,7 +68,9 @@ export default {
                 if (response.data.success){
                     console.log(response.data);
                     console.log("should log in");
+                    this.$store.commit('setUser', response.data.user);
                     this.$emit('loggedIn');
+                    this.$router.push('/')
                 }
                 else{
                     console.log(response.data.errors);

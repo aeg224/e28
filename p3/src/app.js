@@ -1,5 +1,5 @@
 export const axios = require('axios').create({
-    baseURL: 'http://p3.aeg224.loc',
+    baseURL: 'http://e28-api.aeg224.loc',
     responseType: 'json',
     withCredentials: true
 })

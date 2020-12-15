@@ -27,6 +27,19 @@
 
     <div class="container mx-5 pt-5">
       <div class="row">
+
+
+        <div class="col">
+          <h4> Info</h4>
+          <ul>
+            <li>State: {{ parkData.states }}</li>
+            <li>Designation: {{ parkData.designation }}</li>
+            <li>Entrance Fees: {{ parkData.entranceFees[0].cost }}</li>
+            <li>Coordinates: {{ parkData.latLong }}</li>
+            <li>Official Website: <a :href="parkData.url">{{ parkData.url }}</a></li>
+          </ul>
+        </div>
+
         <div class="col">
           <h4>Activities</h4>
           <ul>
@@ -35,25 +48,17 @@
             </li>
           </ul>
         </div>
-        <div class="col">
-          <h4>Other Info</h4>
-          <ul>
-            <li>State: {{ parkData.states }}</li>
-            <li>Designation: {{ parkData.designation }}</li>
-            <li>Entrance Fees: {{ parkData.entranceFees[0].cost }}</li>
-            <li>Coordinates: {{ parkData.latLong }}</li>
-            <li>Official Website: {{ parkData.url }}</li>
-          </ul>
-        </div>
+
+
       </div>
     </div>
 
     <p></p>
     <h4>Weather Info:</h4>
-    : {{ parkData.weatherInfo }}
+    {{ parkData.weatherInfo }}
     <p></p>
     <h4>Directions:</h4>
-    : {{ parkData.directionsInfo }} For more information on directions, please
+    {{ parkData.directionsInfo }} For more information on directions, please
     visit: {{ parkData.directionsUrl }}
     <p></p>
 

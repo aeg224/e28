@@ -11,30 +11,30 @@
     <h3 class="card-title" style="text-align: left;">Please Sign Up</h3>
 </div>
   <div class="col-sm-6">
-    Allready Have An Acount?<button v-on:click="$emit('toggle-view')" type="submit" class=" mb-3 px-3 btn btn-primary">Log In</button>
+    Allready Have An Acount?<button id='loginToggle' v-on:click="$emit('toggle-view')" type="submit" class=" mb-3 px-3 btn btn-primary">Log In</button>
 </div></div>
         </div>
         <form class='mx-1 px-1'>
         <div class="form-group">
             <label for="name">Name</label>
             <input v-model='username' type="email" class="form-control" id="name" placeholder="Enter Name">
-            <small v-if="showNameError" id="errorMessage" class="form-text text-danger">{{nameError}}</small>
+            <small v-if="showNameError" id="errorMessage1" class="form-text text-danger">{{nameError}}</small>
         </div>
         <div class="form-group">
             <label for="email">Email address</label>
             <input v-model='email' type="email" class="form-control" id="email" placeholder="Enter Email">
-            <small v-if="showEmailError" id="errorMessage" class="form-text text-danger">{{emailError}}</small>
+            <small v-if="showEmailError" id="errorMessage2" class="form-text text-danger">{{emailError}}</small>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
             <input v-model='password' type="password" class="form-control" id="password" placeholder="Password">
-             <small v-if="showPasswordError" id="errorMessage" class="form-text text-danger">{{passwordError}}</small>
+             <small v-if="showPasswordError" id="errorMessage3" class="form-text text-danger">{{passwordError}}</small>
        </div>
         </form>
         <p class="card-text">
           You Must Login or Register To Use The Application.
         </p>
-        <button @click=submitRegistration() type="submit" class="mb-3 px-3 btn btn-primary">Submit</button>
+        <button id='submitReg' @click=submitRegistration() type="submit" class="mb-3 px-3 btn btn-primary">Submit</button>
 
 </div>
 </template>

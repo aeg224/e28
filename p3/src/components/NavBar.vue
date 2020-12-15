@@ -2,14 +2,29 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#1"
-        ><h1>NPIA - National Park Information App</h1></a
+        ><h1>National Park Information App</h1></a
       >
       <div class="" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+  <div class="collapse navbar-collapse" id="">
+<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
           <a class="nav-item nav-link active" href="/">Park List <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
           <a class="nav-item nav-link" href="/contact">Contact Us</a>
-          <a class="nav-item nav-link" href="#" @click='logOut()'>Log Out</a>
+      </li>
+            <li class="nav-item">
+          <a class="nav-item nav-link" v-if='validated' href="#" @click='logOut()'>Log Out</a>
+      </li>
+                  <li class="nav-item">
+          <a class="nav-item nav-link" v-if='!validated' href="/login"  >Log In</a>
+      </li>
+      <ul>
+            <span v-if='validated' class="navbar-text">
+      Hi {{userName}}!
+    </span>
         </div>
+
       </div>
     </nav>
   </div>
@@ -18,27 +33,46 @@
 <script>
 import { axios } from "@/app.js";
 export default {
-  props: ["notValidated"],
+  props: [],
   data() {
     return {
       name: "Nav",
+      validated: true,
     };
   },
   methods: {
     logOut(){
-      axios.post('http://e28-api.aeg224.loc/logout').then((response) => {
+        this.$emit('log-out');
+          this.$store.commit('setUser', null);
+          axios.post('http://e28-api.aeg224.loc/logout').then((response) => {
           console.log(response);
-          // If the registration cannot be processed, an error message is displayed
-          
-
           if (!response.data.success){
               console.log(response);
           }
+          this.$router.push('/exit')
+
       });
 
     },
   },
-  mounted() {},
+computed: {
+    userName() {
+        return this.$store.state.user.name;
+    }
+},
+  mounted() {
+      if (typeof(this.userName) == "undefined"){
+        this.validated=false;
+      }
+      else{
+        this.validated=true;
+      }
+
+          console.log('In NavBars Mounted Method!');
+        console.log(this.userName);
+
+  },
+  
 };
 </script>
 

@@ -1,36 +1,34 @@
 <template>
   <div>
+    <!--
     <div v-if='validated' >
       <auth-gate v-on:logIn="logIn()" v-cloak></auth-gate></div>
 
-    <div v-if='!validated'>
-      Num {{pageNum}}
 
-      <button @click='addFavorite()'>Add Favorite</button>
-      <button @click='removeFavorite()'>Remove Favorite</button>
-
+    <div v-if='!validated'> -->
+     <div>
       <h3>
         {{ LIMIT }} Results Per Page:
-        <button @click="changeResults(1)">1</button
-        ><button @click="changeResults(2)">2</button
-        ><button @click="changeResults(3)">3</button
-        ><button @click="changeResults(4)">4</button
-        ><button @click="changeResults(5)">5</button
-        ><button @click="changeResults(6)">6</button
-        ><button @click="changeResults(7)">7</button
-        ><button @click="changeResults(8)">8</button
-        ><button @click="changeResults(9)">9</button
-        ><button @click="changeResults(10)">10</button>
-        <button @click="changeResults(11)">11</button
-        ><button @click="changeResults(12)">12</button
-        ><button @click="changeResults(13)">13</button
-        ><button @click="changeResults(14)">14</button
-        ><button @click="changeResults(15)">15</button
-        ><button @click="changeResults(16)">16</button
-        ><button @click="changeResults(17)">17</button
-        ><button @click="changeResults(18)">18</button
-        ><button @click="changeResults(19)">19</button
-        ><button @click="changeResults(20)">20</button>
+        <button id='1' @click="changeResults(1)">1</button
+        ><button id='2' @click="changeResults(2)">2</button
+        ><button id='3' @click="changeResults(3)">3</button
+        ><button id='4' @click="changeResults(4)">4</button
+        ><button id='5' @click="changeResults(5)">5</button
+        ><button id='6' @click="changeResults(6)">6</button
+        ><button id='7' @click="changeResults(7)">7</button
+        ><button id='8' @click="changeResults(8)">8</button
+        ><button id='9' @click="changeResults(9)">9</button
+        ><button id='10' @click="changeResults(10)">10</button>
+        <button id='11' @click="changeResults(11)">11</button
+        ><button id='12' @click="changeResults(12)">12</button
+        ><button id='13' @click="changeResults(13)">13</button
+        ><button id='14' @click="changeResults(14)">14</button
+        ><button id='15' @click="changeResults(15)">15</button
+        ><button id='16' @click="changeResults(16)">16</button
+        ><button id='17' @click="changeResults(17)">17</button
+        ><button id='18' @click="changeResults(18)">18</button
+        ><button id='19' @click="changeResults(19)">19</button
+        ><button id='20' @click="changeResults(20)">20</button>
       </h3>
       <div class="container">
         <div class="row mx-5 px-4">
@@ -83,16 +81,16 @@
 </template>
 
 <script>
-import { axios } from "@/app.js";
+//import { axios } from "@/app.js";
 import { axios_nps_api } from "@/app.js";
 
-import AuthGate from "@/components/AuthGate.vue";
+//import AuthGate from "@/components/AuthGate.vue";
 
 
 export default {
   props: [],
   components: {
-    "auth-gate": AuthGate
+   // "auth-gate": AuthGate
   },
   data() {
     return {
@@ -103,7 +101,7 @@ export default {
       loggedIn: false,
       LIMIT: 25,
       START: 0,
-      validated: true,
+    //  validated: true,
     };
   },
   methods: {
@@ -112,7 +110,7 @@ export default {
     },
     logIn(){
       console.log('logged in');
-      this.validated=false;
+     // this.validated=false;
     },
     addFavorite(){
       this.$store.commit('setPageNum', 1);
@@ -167,6 +165,7 @@ export default {
     console.log(this.pageNum);
     this.page = this.pageNum;
     this.getParkData();
+    /*
     console.log('calling auth to determine validation')
       axios.post('http://e28-api.aeg224.loc/auth', {
             }).then((response) => {
@@ -182,7 +181,7 @@ export default {
                 }
             });
             console.log('validated is :')
-            console.log(this.validated);
+            console.log(this.validated);*/
 
   },
   computed: {

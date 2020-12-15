@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div>
+    <div v-if='validated'><auth-gate></auth-gate></div>
+    <div v=if='!validated'>
       <h3>
         {{ LIMIT }} Results Per Page:
         <button @click="changeResults(1)">1</button
@@ -13,6 +14,16 @@
         ><button @click="changeResults(8)">8</button
         ><button @click="changeResults(9)">9</button
         ><button @click="changeResults(10)">10</button>
+        <button @click="changeResults(11)">11</button
+        ><button @click="changeResults(12)">12</button
+        ><button @click="changeResults(13)">13</button
+        ><button @click="changeResults(14)">14</button
+        ><button @click="changeResults(15)">15</button
+        ><button @click="changeResults(16)">16</button
+        ><button @click="changeResults(17)">17</button
+        ><button @click="changeResults(18)">18</button
+        ><button @click="changeResults(19)">19</button
+        ><button @click="changeResults(20)">20</button>
       </h3>
       <div class="container">
         <div class="row mx-5 px-4">
@@ -39,26 +50,38 @@
       </div>
     </div>
     <h3>
-      {{ LIMIT }} Results Per Page: <button @click="changeResults(1)">1</button
-      ><button @click="changeResults(2)">2</button
-      ><button @click="changeResults(3)">3</button
-      ><button @click="changeResults(4)">4</button
-      ><button @click="changeResults(5)">5</button
-      ><button @click="changeResults(1)">6</button
-      ><button @click="changeResults(2)">7</button
-      ><button @click="changeResults(3)">8</button
-      ><button @click="changeResults(4)">9</button
-      ><button @click="changeResults(5)">10</button>
+      {{ LIMIT }} Results Per Page:
+        <button @click="changeResults(1)">1</button
+        ><button @click="changeResults(2)">2</button
+        ><button @click="changeResults(3)">3</button
+        ><button @click="changeResults(4)">4</button
+        ><button @click="changeResults(5)">5</button
+        ><button @click="changeResults(6)">6</button
+        ><button @click="changeResults(7)">7</button
+        ><button @click="changeResults(8)">8</button
+        ><button @click="changeResults(9)">9</button
+        ><button @click="changeResults(10)">10</button>
+        <button @click="changeResults(11)">11</button
+        ><button @click="changeResults(12)">12</button
+        ><button @click="changeResults(13)">13</button
+        ><button @click="changeResults(14)">14</button
+        ><button @click="changeResults(15)">15</button
+        ><button @click="changeResults(16)">16</button
+        ><button @click="changeResults(17)">17</button
+        ><button @click="changeResults(18)">18</button
+        ><button @click="changeResults(19)">19</button
+        ><button @click="changeResults(20)">20</button>
     </h3>
   </div>
 </template>
 
 <script>
 import { axios } from "@/app.js";
+import AuthGate from '../../../p3/src/assets/AuthGate.vue';
 
 export default {
   props: [],
-  components: {},
+  components: {AuthGate},
   data() {
     return {
       name: "App",
@@ -66,7 +89,7 @@ export default {
       page: 1,
       parksWithLimit: [],
       loggedIn: false,
-      LIMIT: 50,
+      LIMIT: 10,
       START: 0,
     };
   },
@@ -80,7 +103,7 @@ export default {
       this.parks = [];
       console.log("getting park data");
       if (this.page > 1) {
-        this.START = (this.page - 1) * 50;
+        this.START = (this.page - 1) * 10;
       } else {
         this.START = 0;
       }

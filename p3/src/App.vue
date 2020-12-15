@@ -7,7 +7,7 @@
       crossorigin="anonymous"
     />
 
-    <nav-bar></nav-bar>
+    <nav-bar :key='validated'></nav-bar>
 
     <router-view :parks="parks" v-on:isLoggedIn="isLoggedIn()"></router-view>
   </body>
@@ -27,19 +27,28 @@ export default {
       links: ["home"],
       paths: {
         home: "/home",
+//        validated: true,
       },
     };
   },
   methods: {
+    
           isLoggedIn(){
             console.log('logged into app');
-        //    localStorage.notValidated=false;
-        //    this.notValidated=false;
-             // this.getParkData();
-          },    
-
+      //      this.validated=true;
+          },  
+          validatedTrue(){
+            console.log("validated Should Be True");
+      //      this.validated=true;
+          },
+          validatedFalse(){
+            console.log("Validated Should Be False!");
+      //      this.validated=false;
+          }  
   },
-  mounted() {},
+mounted() {   
+    this.$store.dispatch('authUser');
+},
     computed: {
   },
 };
