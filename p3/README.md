@@ -1,3 +1,29 @@
+COMPLETE README
+COMPLETE TESTS
+Add Server Side Authentication
+change name of Vuex.store
+allow form submission on enter
+valid registration should redirect to login
+complete tests
+
+
+
+# Project 3
++ By: *your first and last name*
++ Production URL: <http://e28p3.yourdomain.com>
+
+## Outside resources
+*Your list of outside resources go here*
+
+## Notes for instructor
+*Any notes for me to refer to while grading; if none, omit this section*
+
+
+
+
+
+
+
 # Project 2
 + By: Alexander Giannini
 + Production URL: http://e28p2.alex-giannini.me/

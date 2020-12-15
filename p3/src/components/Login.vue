@@ -18,12 +18,12 @@
         <form class='mx-1 px-1'>
         <div class="form-group">
             <label for="email">Email address</label>
-            <input v-model='username' type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input @keyup.enter='checkLogin' v-model='username' type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
             <small v-if='showEmailError' id="errorMessage1" class="form-text text-danger">{{emailError}}</small>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input v-model='password' type="password" class="form-control" id="password" placeholder="Password">
+            <input @keyup.enter='checkLogin' v-model='password' type="password" class="form-control" id="password" placeholder="Password">
             <small v-if='showPasswordError' id="errorMessage2" class="form-text text-danger">{{passwordError}}</small>
             <small v-if='showCredentialError' id="errorMessage3" class="form-text text-danger">{{credentialError}}</small>
         </div>

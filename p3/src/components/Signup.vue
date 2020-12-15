@@ -1,6 +1,4 @@
-<!--
 
-!-->
 <template>
 <div>
     <div class="card-body">
@@ -17,17 +15,17 @@
         <form class='mx-1 px-1'>
         <div class="form-group">
             <label for="name">Name</label>
-            <input v-model='username' type="email" class="form-control" id="name" placeholder="Enter Name">
+            <input @keyup.enter='submitRegistration' v-model='username' type="email" class="form-control" id="name" placeholder="Enter Name">
             <small v-if="showNameError" id="errorMessage1" class="form-text text-danger">{{nameError}}</small>
         </div>
         <div class="form-group">
             <label for="email">Email address</label>
-            <input v-model='email' type="email" class="form-control" id="email" placeholder="Enter Email">
+            <input @keyup.enter='submitRegistration' v-model='email' type="email" class="form-control" id="email" placeholder="Enter Email">
             <small v-if="showEmailError" id="errorMessage2" class="form-text text-danger">{{emailError}}</small>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input v-model='password' type="password" class="form-control" id="password" placeholder="Password">
+            <input @keyup.enter='submitRegistration' v-model='password' type="password" class="form-control" id="password" placeholder="Password">
              <small v-if="showPasswordError" id="errorMessage3" class="form-text text-danger">{{passwordError}}</small>
        </div>
         </form>
@@ -74,6 +72,7 @@ export default {
                 // If the registration cannot be processed, an error message is displayed
                 if (!response.data.success){
                     response.data.errors.forEach(this.setErrors)
+                    this.$emit('toggle-view');
                 }
             });
           },
