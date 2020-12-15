@@ -64,7 +64,7 @@ export default {
             this.resetErrors();
             console.log(this.email);
             console.log(this.username);
-            axios.post('http://e28-api.aeg224.loc/register', {
+            axios.post('register', {
                 name: this.username,
                 email: this.email,
                 password: this.password
