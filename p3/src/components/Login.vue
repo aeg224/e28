@@ -59,7 +59,7 @@ export default {
         checkLogin() {
             console.log('checking login');
             this.resetErrors();
-            axios.post('http://e28-api.aeg224.loc/login', {
+            axios.post('login', {
                 email: this.username,
                 password: this.password
             }).then((response) => {

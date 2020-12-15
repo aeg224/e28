@@ -19,7 +19,7 @@
                   <li class="nav-item">
           <a class="nav-item nav-link" v-if='!validated' href="/login"  >Log In</a>
       </li>
-      <ul>
+      </ul>
             <span v-if='validated' class="navbar-text">
       Hi {{userName}}!
     </span>
@@ -44,7 +44,7 @@ export default {
     logOut(){
         this.$emit('log-out');
           this.$store.commit('setUser', null);
-          axios.post('http://e28-api.aeg224.loc/logout').then((response) => {
+          axios.post('logout').then((response) => {
           console.log(response);
           if (!response.data.success){
               console.log(response);

@@ -199,7 +199,7 @@ export default {
     },
     getParkComments() {
       console.log("getting comments");
-      axios.get("/comments").then((response) => {
+      axios.get("comments").then((response) => {
         response.data.comments.forEach(this.cleanComments);
       });
     },
