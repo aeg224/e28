@@ -68,10 +68,11 @@ export default {
                 password: this.password
             }).then((response) => {
                 console.log(response);
-
                 // If the registration cannot be processed, an error message is displayed
                 if (!response.data.success){
                     response.data.errors.forEach(this.setErrors)
+                }
+                else{
                     this.$emit('toggle-view');
                 }
             });
