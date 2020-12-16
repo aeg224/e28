@@ -14,7 +14,7 @@
           <a class="nav-item nav-link" href="/contact">Contact Us</a>
       </li>
             <li class="nav-item">
-          <a class="nav-item nav-link" v-if='validated' href="#" @click='logOut()'>Log Out</a>
+          <a id='logoutButton' class="nav-item nav-link" v-if='validated' href="#" @click='logOut()'>Log Out</a>
       </li>
                   <li class="nav-item">
           <a class="nav-item nav-link" v-if='!validated' href="/login"  >Log In</a>

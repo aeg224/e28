@@ -111,6 +111,7 @@
             @click="submitComment()"
             type="submit"
             class="mb-3 px-3 btn btn-primary"
+            id='submitComment'
           >
             Submit
           </button>
@@ -123,7 +124,7 @@
               v-for="comment in parkComments"
               :key="comment.id"
             >
-              {{ comment.name }}'s comment : {{ comment.comment }}
+              <span id='commentName'>{{ comment.name }}</span> comment : {{ comment.comment }}
             </li>
           </ul>
         </div>
