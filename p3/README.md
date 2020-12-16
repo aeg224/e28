@@ -30,7 +30,7 @@ To manage the two API calls, I used two different instances of axios. The e28 ap
 
 ###### My implementation of Vuex is very similar to the one demonstrated in class. It stores the user ID state as well as the MasterParkList Page's state. I decided to use it for the MasterParkList page after realizing that it would be much more convenient for the user. There are over 20 versions of the MasterParkList page, so storing the state is helpful. 
 
-###### To do this, I created a computed property in MasterParkList.vue called pageNum which returns the current state. Also, everytime the user presses the 'number button' changeResults' is called which modifies the state of the application.
+###### To do this, I created a computed property in MasterParkList.vue called pageNum which returns the current state. Also, everytime the user presses the 'number button' changeResults' is called which modifies the state of the application. To ensure the Vuex state is stored across different routes, I used the Vuex Persist State Plugin, which I learned about from the stack overflow post listed above.
 
 ##### Authentication - Visitors should be able to register and login. Some aspect of the app should be restricted based on user’s login status.
 
@@ -45,4 +45,5 @@ To manage the two API calls, I used two different instances of axios. The e28 ap
 ##### Passing E2E testing for all features
 ###### My e2e testing tests all of the features of the app including: form validation, form submission, login, logout, registration, authorization and the Vuex Store's Master Park List state storage. The tests run through each and all pass.
 
+###### Two notes about my E2E testing. On just a few occasions, I've had the tests fail due to (what I think are) latency issues. The few times this has occured I've run the test right afterwards and had them pass. Also, To test the registration, I needed to generate a unique email address every time. To do this, I use Math.floor(Math.random() * 100000). As a result, there is a 1 in 100000 chance the test will generate an allready used email address and will result in an error. 
 

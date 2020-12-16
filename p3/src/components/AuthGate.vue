@@ -2,9 +2,8 @@
   <div>
     <center>
       <div class="card mt-5" style="width: 75vw; height: 100%">
-        <log-in v-if="login" v-on:toggle-view="toggleView()" v-on:loggedIn="loggedIn()"></log-in>
-        <sign-up v-if="signUp" v-on:toggle-view="toggleView()" v-on:loggedIn="loggedIn()"></sign-up>
-
+        <log-in v-if="login" v-on:toggle-view="toggleView()"></log-in>
+        <sign-up v-if="signUp" v-on:toggle-view="toggleView()"></sign-up>
       </div>
     </center>
   </div>
@@ -27,6 +26,7 @@ export default {
     };
   },
   methods: {
+    // Changes the page between Signup To Login
     toggleView() {
       console.log(this.login);
       console.log("inside toggle");
@@ -45,11 +45,6 @@ export default {
         this.signUp = true;
       }
     },
-  
-  loggedIn(){
-    console.log("Logged In auth!");
-    this.$emit('logIn');
-  }
   },
 };
 </script>

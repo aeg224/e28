@@ -1,6 +1,6 @@
 // https://docs.cypress.io/api/introduction/api.html
 
-let EMAIL = 'test@' + Math.floor(Math.random() * 1000);
+let EMAIL = 'test@' + Math.floor(Math.random() * 100000);
 
 describe('Auth Test - Logged Out', () => {
   it('Tests Logged Out Users Only Have Main Page access', () => {
