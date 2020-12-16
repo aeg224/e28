@@ -60,6 +60,8 @@ computed: {
         return this.$store.state.user.name;
     }
 },
+
+// Determines if the user is logged in for dynamic display.
   mounted() {
       if (typeof(this.userName) == "undefined"){
         this.validated=false;

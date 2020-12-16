@@ -26,8 +26,8 @@ describe('Vuex Test', () => {
   })
 })
 
-describe('Form Validation - Signup ', () => {
-  it('Tests the form validation for signup', () => {
+describe('Form Validation - Registration ', () => {
+  it('Tests the form validation for registration', () => {
     cy.visit('/login');
     cy.contains('h3', 'Please Sign Up');
     cy.get('#submitReg').click();
@@ -108,4 +108,6 @@ describe('Log Out Functionality', () => {
 
   })
 })
+
+
 

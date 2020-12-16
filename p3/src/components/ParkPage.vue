@@ -161,6 +161,8 @@ export default {
       this.notValidated = false;
       this.$emit("isLoggedIn");
     },
+
+    // Validates and submits
     submitComment() {
       this.resetErrors();
       axios
@@ -211,6 +213,9 @@ export default {
         this.parkComments.push(comment);
       }
     },
+
+
+    // Calls NPS API for just this page's park
     getParkData() {
       console.log("getting park data");
       axios_nps_api
