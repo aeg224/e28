@@ -5,6 +5,8 @@ import { axios } from '@/app.js';
 
 Vue.use(Vuex)
 
+
+// The Vuex instance stores the state of the page number and the user which is used in the navigation and routing.
 export default new Vuex.Store({
     state: {
         pageNum: 0,

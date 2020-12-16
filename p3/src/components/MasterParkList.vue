@@ -1,11 +1,5 @@
 <template>
   <div>
-    <!--
-    <div v-if='validated' >
-      <auth-gate v-on:logIn="logIn()" v-cloak></auth-gate></div>
-
-
-    <div v-if='!validated'> -->
      <div>
       <h3>
         {{ LIMIT }} Results Per Page:
@@ -81,16 +75,11 @@
 </template>
 
 <script>
-//import { axios } from "@/app.js";
 import { axios_nps_api } from "@/app.js";
-
-//import AuthGate from "@/components/AuthGate.vue";
-
 
 export default {
   props: [],
   components: {
-   // "auth-gate": AuthGate
   },
   data() {
     return {
@@ -101,24 +90,9 @@ export default {
       loggedIn: false,
       LIMIT: 25,
       START: 0,
-    //  validated: true,
     };
   },
   methods: {
-    isLoggedIn() {
-      this.getParkData();
-    },
-    logIn(){
-      console.log('logged in');
-     // this.validated=false;
-    },
-    addFavorite(){
-      this.$store.commit('setPageNum', 1);
-    },
-    removeFavorite(){
-      this.$store.commit('setPageNum', -1);
-    },
-
 // Makes the API Call to the NPS API
     getParkData() {
       this.parks = [];
@@ -140,6 +114,7 @@ export default {
           response.data.data.forEach(this.cleanData);
         });
     },
+
     cleanData(park) {
       if (typeof park.images[0] != "undefined") {
         this.parks.push(park);
@@ -165,30 +140,11 @@ export default {
     console.log(this.pageNum);
     this.page = this.pageNum;
     this.getParkData();
-    /*
-    console.log('calling auth to determine validation')
-      axios.post('http://e28-api.aeg224.loc/auth', {
-            }).then((response) => {
-                console.log(response.data);
-                if (response.data.authenticated){
-                    this.validated=false;
-                }
-                else{
-                    console.log(response.data.authenticated);
-                    console.log("bad input");
-                    response.data.errors.forEach(this.setErrors);
-                    this.validated=true;
-                }
-            });
-            console.log('validated is :')
-            console.log(this.validated);*/
-
   },
   computed: {
     pageNum(){
       return this.$store.state.pageNum;
     }
-
   },
 };
 </script>

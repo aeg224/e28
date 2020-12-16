@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-//import MasterParkList from '@/components/MasterParkList.vue';
-//import ParkPage from '@/components/ParkPage.vue';
-//import ContactPage from '@/components/ContactPage.vue';
 import store from '@/common/store.js';
 
 Vue.config.productionTip = false;
@@ -12,12 +9,12 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', component: () => import ('@/components/MasterParkList.vue'), props: true },
-    { path: '/parks/:id', component: () => import ('@/components/ParkPage.vue'), props: true, meta: {requiresAuth: true}},
-    { path: '/contact', component: () => import ('@/components/ContactPage.vue'), meta: {requiresAuth: true}},
-    { path: '/error', component: () => import ('@/components/401.vue')},
-    { path: '/login', component: () => import ('@/components/AuthGate.vue')},
-    { path: '/exit', component: () => import ('@/components/Exit.vue')},
+    { path: '/', component: () => import ('@/components/MasterParkList.vue'), props: true, meta: {title:'Home'}},
+    { path: '/parks/:id', component: () => import ('@/components/ParkPage.vue'), props: true, meta: {requiresAuth: true, title: 'Park Page'}},
+    { path: '/contact', component: () => import ('@/components/ContactPage.vue'), meta: {requiresAuth: true, title:'Contact Page'}},
+    { path: '/error', component: () => import ('@/components/401.vue'), meta: {title:'Error'}},
+    { path: '/login', component: () => import ('@/components/AuthGate.vue'), meta: {title:'Auth'}},
+    { path: '/exit', component: () => import ('@/components/Exit.vue'), meta: {title:'Exit'}},
   ]
 })
 
@@ -26,6 +23,8 @@ router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
   const decide = () => {
+    document.title = to.meta.title
+
       if (requiresAuth && !store.state.user) {
           next('/error');
       }
